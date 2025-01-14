@@ -4,20 +4,39 @@ format: html
 editor: visual
 ---
 
-## Running Code
+## Importing Libraries
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Importing all the libraries needed for the analysis.
 
 ```{r}
 #| message: false
 library("dplyr")
+library("ggplot2")
 ```
 
 You can add options to executable code like this
 
 ```{r}
-#| echo: false
-2 * 2
+head(df)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Data Wrangling
+
+Change project column from `chr` to `factor`.
+
+```{r}
+df |>
+  mutate(
+    project = as.factor(project),
+    target = as.factor(target)
+  )
+```
+
+## Analysis Visualization
+
+```{r}
+df |>
+  ggplot(
+    aes(fill = target)
+  )
+```

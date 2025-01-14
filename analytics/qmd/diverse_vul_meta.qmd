@@ -1,0 +1,25 @@
+---
+title: "diverse_vul_meta"
+format: html
+editor: visual
+---
+
+## Importing Libraries
+
+Importing all the libraries needed for the analysis.
+
+```{r}
+#| message: false
+#| echo: false
+library("dplyr")
+library("jsonlite")
+```
+
+## Importing Data
+
+```{r}
+#| echo: false
+df_meta <- stream_in(file("../data/diversevul_20230702_metadata.json"))
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
