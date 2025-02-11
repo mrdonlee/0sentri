@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "service/";
+
+message Code {
+  string code = 1;
+}
+
+message Vulnerability {
+  string result = 1;
+}
+
+service CodeProcessor {
+  rpc ProcessCode (Code) returns (Vulnerability);
+}
